@@ -1,0 +1,241 @@
+package ChatSystem;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+import java.io.*;
+
+public class ChatMain extends JFrame implements ActionListener{
+	LxFk l=null;
+	CfxFk c=null;
+	ZfxFk z=null;
+	SxFk s=null;
+	JMenuBar cdl=null;//菜单栏
+	JMenu cd=null;//游戏控制
+	JMenuItem star=null;//开始游戏
+	JMenuItem save=null;//保存游戏
+	JMenuItem keep=null;//继续游戏
+	JMenuItem out=null;//退出游戏
+
+	//函数初始化
+	public ChatMain() {
+		setRandom();
+		setMenu();
+		setMain();
+	}
+	public void setMenu() {
+		cdl=new JMenuBar();
+		cd=new JMenu("游戏控制");
+		star=new JMenuItem("开始游戏");
+		star.addActionListener(this);
+		save=new JMenuItem("保存游戏");
+		save.addActionListener(this);
+		keep=new JMenuItem("继续游戏");
+		keep.addActionListener(this);
+		out=new JMenuItem("退出游戏");
+		out.addActionListener(this);
+		cd.add(star);
+		cd.add(save);
+		cd.add(keep);
+		cd.add(out);
+		cdl.add(cd);
+		this.setJMenuBar(cdl);
+	}	
+	//设置随机产生的方块
+	public void setRandom() {
+		l=new LxFk();
+		c=new CfxFk();
+		z=new ZfxFk();
+		s=new SxFk();
+		Thread i1=new Thread(l);
+		Thread i2=new Thread(c);
+		Thread i3=new Thread(z);
+		Thread i4=new Thread(s);
+		i1.start();
+		this.add(l);
+		i2.start();
+		this.add(c);
+		i3.start();
+		this.add(z);
+		i4.start();
+		this.add(s);
+	}
+
+	//主容器设置属性
+	public void setMain() {
+		this.setTitle("俄罗斯方块");
+		this.setSize(300, 500);
+		this.setLocation(200, 100);
+		this.setVisible(true);
+		this.setResizable(false);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==star) {
+
+		}else if(e.getSource()==save) {
+
+		}else if(e.getSource()==keep) {
+
+		}else if(e.getSource()==out) {
+			this.dispose();
+			System.exit(0);
+		}
+
+	}
+	public static void main(String[] args)throws Exception {
+		new ChatMain(); 
+	}
+
+
+
+
+}
+
+//创建一个定义方块初始位置和背景的类
+class Fk {
+	int x=150;//横移
+	int y=0;//向下移动
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
+}
+//L型方块
+class LxFk extends JPanel implements Runnable{
+	int x=150;
+	int y=0;
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.fill3DRect(0, 0, 300, 500, false);
+		g.setColor(Color.BLUE);
+		g.fillRect(x, y, 10, 40);
+		g.fillRect(x, y+40, 35, 10);
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(y<460) {
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			this.repaint();
+			y+=50;
+		}
+	}
+}
+//正方形方块
+class ZfxFk extends JPanel implements Runnable{
+	int x=150;
+	int y=0;
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.fill3DRect(0, 0, 300, 500, false);
+		g.setColor(Color.BLUE);
+		g.fillRect(x-15, y, 30, 30);
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(y<500) {
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			y+=50;
+			this.repaint();
+		}
+	}	
+}
+//长方形方块
+class CfxFk extends JPanel  implements Runnable {
+	int x=150;
+	int y=0;
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.fill3DRect(0, 0, 300, 500, false);
+		g.setColor(Color.YELLOW);
+		g.fillRect(x-30,y, 60, 10);
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(y<500) {
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			y+=50;
+			this.repaint();
+		}
+	}
+}
+//竖行方块
+class SxFk extends JPanel implements Runnable {
+	int x=150;
+	int y=0;
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.fill3DRect(0, 0, 300, 500, false);
+		g.setColor(Color.red);
+		g.fillRect(x-5, y, 10, 60);
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(y<500) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			y+=50;
+			this.repaint();
+		}
+	}
+}
+////线程运行
+//class setFk extends Thread{	
+//	//随机运行方块的线程
+//	public setFk() throws InterruptedException {
+//		int num=(int)(Math.random()*4);
+//		LxFk l=new LxFk();
+//		CfxFk c=new CfxFk();
+//		ZfxFk z=new ZfxFk();
+//		SxFk s=new SxFk();
+//		Thread i1=new Thread(l);
+//		Thread i2=new Thread(c);
+//		Thread i3=new Thread(z);
+//		Thread i4=new Thread(s);
+//		switch(num) {
+//		case 0:
+//			i1.start();			
+//		case 1:
+//			i2.start();
+//		case 2:	
+//			i3.start();
+//		case 3:
+//			i4.start();
+//		}
+//	}
+//}
+
+

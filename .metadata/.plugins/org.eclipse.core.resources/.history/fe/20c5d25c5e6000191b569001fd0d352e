@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="content-test" content="3"> 
+<title>测试</title>
+<style type="text/css">
+
+}
+</style>
+</head>
+<body>
+	<a href="http://www.ifeng.com" target="myframe">凤凰网</a>
+	<br>
+	<iframe src="http://www.baidu.com" width="600px" height="200px"
+		name="myframe"></iframe>s
+	<br>
+	<h1 align="center">NBA季后赛对阵</h1>
+	<h3 align="right">Author: Ben</h3>
+	<hr>
+	<p align="center">勇士vs快船 4月14日上午9:00</p>
+	<p align="center">掘金vs马刺 4月15日上午9:30</p>
+	<p align="center">
+		火箭vs爵士 <i>4月15日上午10:30</i>
+	</p>
+	1.
+	<a href="http://www.baidu.com">百度</a>
+	<br> 2.
+	<a href="tp.zip" download="tp.zip">图片下载</a>
+	<br>
+	<a href="http://www.baidu.com"><img src="havo.jpg" alt="哈佛"
+		width="150" height="100" title="哈佛大学"></a>
+	<br>
+	<mark>"恭喜SKT获得春季赛冠军"</mark>
+	<br>
+	<a href="#Tor">猛龙球队数据</a>
+	<a href="#Mgi">魔术球队数据</a>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<a id="Tor">猛龙技术统计</a>
+	<a id="Mgi">魔术技术统计</a>
+	<a href="http://www.baidu.com" target="_blank">链接</a>
+	<br> m
+	<sup>3</sup> ch
+	<sub>2</sub>
+	<br>
+	<dl>
+		<dt>
+			<b>今日战报：</b>
+		</dt>
+		<dd>火箭碾压爵士取得季后赛开门红</dd>
+	</dl>
+	<table border="1">
+		<caption>表格实例</caption>
+		<tr>
+			<th rowspan="4">单元格</th>
+		</tr>
+		<tr>
+			<td colspan="2">单元1</td>
+			<td>单元1</td>
+		</tr>
+		<tr>
+			<td>单元2</td>
+			<td>单元2</td>
+			<td>单元2</td>
+		</tr>
+		<tr>
+			<td>单元3</td>
+			<td>单元3</td>
+			<td>单元3</td>
+		</tr>
+	</table>
+	<br>
+	<!-- 单元格练习，这是注解 -->
+	<table border="1" align="center">
+		<colgroup span="1" style="width: 150px">
+			<col style="background: yellow">
+		</colgroup>
+		<colgroup span="2" style="width: 200px">
+			<col style="background: red">
+			<col style="background: red">
+		</colgroup>
+		<colgroup span="1" style="width: 150px">
+			<col style="background: blue">
+		</colgroup>
+		<thead>
+			<tr>
+				<th>单元格表头</th>
+				<th colspan="2">单元格内容</th>
+				<th>单元格表尾</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>单元1</td>
+				<td>单元1</td>
+				<td>单元1</td>
+				<td>单元1</td>
+			</tr>
+			<tr>
+				<td>单元2</td>
+				<td>单元2</td>
+				<td>单元2</td>
+				<td>单元2</td>
+			</tr>
+			<tr>
+				<td>单元3</td>
+				<td>单元3</td>
+				<td>单元3</td>
+				<td>单元3</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="4" style="background: white">备注:</td>
+			</tr>
+		</tfoot>
+	</table>
+	<br>
+	<pre>
+		君不见黄河之水天上来
+			奔流到海不复返
+				举杯邀明月
+					低头思故乡
+	</pre>
+	
+</body>
+</html>

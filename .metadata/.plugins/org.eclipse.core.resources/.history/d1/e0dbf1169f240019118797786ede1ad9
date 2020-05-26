@@ -1,0 +1,110 @@
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.sql.*;
+import java.awt.event.*;
+import javax.swing.event.*;
+
+public class StuAdmin extends JFrame
+{
+	Connection ct=null;
+	PreparedStatement ps=null;
+	ResultSet rs=null;
+	//定义两个集合存放表格的字段和记录
+	Vector ziduan=new Vector();
+	Vector jilu=new Vector();
+	Vector hang=new Vector();
+	//定义一个表格显示数据库的数据
+	JTable jb;
+	//定义增删改查按钮
+	JButton select=null;
+	JButton add=null;
+	JButton delete=null;
+	JButton update=null;
+	//定义查询文本框
+	JTextField a=null;
+	JLabel i=null;
+	//定义两个JPanel,分别用来存放四个按钮
+	JPanel b=null;
+	JPanel c=null;
+	//添加滚动条
+	JScrollPane gd=null;
+	//初始化函数
+	public StuAdmin() {
+//		setTable();
+//		setMB();
+//		setJFrame();	
+		setsql();
+	}
+	//设置数据库连接并显示
+	public void setsql() {
+		ziduan.add("编号");
+		ziduan.add("姓名");
+		ziduan.add("年龄");		
+		try {
+			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			ct=DriverManager.getConnection("jdbc:odbc:SQL 2012", "sa", "123456");
+			ps=ct.prepareStatement("insert into department values(5,'财务部','一层')");
+			int i=ps.executeUpdate();
+			if(i==1) {
+				System.out.println("添加成功");
+			}
+			while(rs.next()){
+				int i0=rs.getInt(1);
+				String i1=rs.getString(2);
+				String i2=rs.getString(3);
+//				jilu.addAll(hang);			
+			}			
+		} catch (Exception e) {
+		}
+		finally {
+			try {
+				if(ct!=null) {
+					ct.close();
+				}
+				if(ps!=null) {
+					ps.close();
+				}
+				if(rs!=null) {
+					rs.close();
+				}
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
+	public void setTable() {
+		jb=new JTable(jilu,ziduan);
+		gd=new JScrollPane(jb);
+		this.add(gd);
+	}
+	//创建设置系统面板的函数
+	public void setMB() {
+		i=new JLabel("请输入学生姓名");
+		select=new JButton("查询");
+		add=new JButton("添加");
+		delete=new JButton("删除");
+		update=new JButton("修改");
+		b=new JPanel();
+		c=new JPanel();
+		a=new JTextField(10);
+		//分别将按钮添加到JPanel
+		b.add(i);b.add(a);b.add(select);//北
+		c.add(add);c.add(delete);c.add(update);//南
+		//将所有组件添加到顶层容器
+		this.add(b,BorderLayout.NORTH);
+		this.add(c,BorderLayout.SOUTH);
+	}
+	public void setJFrame() {
+		this.setTitle("学生管理系统");
+		this.setSize(500,500);
+		this.setResizable(false);
+		this.setLocation(350,100);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public static void main(String[] args) {
+		new StuAdmin();
+	}
+}

@@ -1,0 +1,37 @@
+package com.Test;
+
+import java.io.IOException;
+
+public class Jmail {
+	public void runner(){
+		threa a=new threa("notepad");
+		Thread thread=new Thread(a);
+		thread.start();
+	}
+	public static void main(String[] args) {
+		Jmail jmail=new Jmail();
+		jmail.runner();
+		threa b=new threa("calc");
+		Thread thread=new Thread(b);
+		thread.start();
+	}
+}
+
+class threa implements Runnable{
+	String str="";
+	public threa(String str) {
+		this.str=str;
+	}
+	@Override
+	public void run() {
+		try {
+			Process process=Runtime.getRuntime().exec(str);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+}
+

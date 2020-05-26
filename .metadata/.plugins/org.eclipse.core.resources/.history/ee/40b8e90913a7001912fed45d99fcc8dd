@@ -1,0 +1,8 @@
+import java.io.IOException;
+
+public class SystemOff {
+	public static void main(String[] args) throws IOException {
+		Process pr=Runtime.getRuntime().exec("ipconfig");
+		
+	}
+}

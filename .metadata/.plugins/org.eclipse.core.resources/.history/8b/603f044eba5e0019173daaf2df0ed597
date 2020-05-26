@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试</title>
+</head>
+<body>
+<h1 align="center">NBA季后赛对阵</h1>
+<h3 align="right">Author: Ben</h3><hr>
+<p align="center">勇士vs快船   4月14日上午9:00</p>
+<p align="center">掘金vs马刺   4月15日上午9:30</p>
+<p align="center">火箭vs爵士 <i>4月15日上午10:30</i></p>
+1.<a href="http://www.baidu.com" >百度</a><br>
+2.<a href="tp.zip"download="tp.zip">图片下载</a><br>
+<a href="http://www.baidu.com"><img src="havo.jpg"></a><br>
+<mark>"恭喜SKT获得春季赛冠军"</mark><br>
+<a href="#Tor">猛龙球队数据</a>
+<a href="#Mgi">魔术球队数据</a>
+<br><br><br><br><br><br>
+<a id="Tor">猛龙技术统计</a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<a id="Mgi">魔术技术统计</a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<a href="http://www.baidu.com" target="_blank">链接</a>
+</body>
+</html>

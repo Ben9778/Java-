@@ -1,0 +1,12 @@
+package com.Test;
+
+import java.io.IOException;
+
+public class Jmail {
+
+	public static void main(String[] args) {
+		
+	}
+}
+
+

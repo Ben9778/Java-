@@ -1,0 +1,105 @@
+package ChatSystem;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.io.*;
+
+public class ChatMain extends JFrame implements ActionListener{
+	JMenu wj;
+	JMenuItem dk;
+	JMenuItem bc;
+	JMenuItem tc;
+	JMenuBar cdl;
+	JTextArea wby;
+	JScrollPane gdt;
+	public ChatMain() {
+		setMenu();
+		setWby();
+		setMain();
+	}
+	public void setMenu() {
+		wj=new JMenu("文件(F)");
+		wj.setMnemonic('F');
+		dk=new JMenuItem("打开");
+		dk.addActionListener(this);//监听
+		bc=new JMenuItem("保存");
+		bc.addActionListener(this);//监听
+		tc=new JMenuItem("退出");
+		tc.addActionListener(this);//监听
+		cdl=new JMenuBar();
+		wj.add(dk);
+		wj.add(bc);
+		wj.add(tc);
+		cdl.add(wj);
+		this.setJMenuBar(cdl);
+	}
+	public void setWby() {
+		wby=new JTextArea();
+		gdt=new JScrollPane(wby);
+		gdt.getHorizontalScrollBar();
+		this.add(gdt);
+	}
+	public void setMain() {
+		this.setTitle("记事本");
+		this.setLocation(150, 100);
+		this.setSize(200, 250);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public void actionPerformed(ActionEvent e) {
+		JFileChooser i=new JFileChooser();
+		if(e.getSource()==dk) {
+			i.showOpenDialog(null);
+			i.setDialogTitle("文件打开");
+			i.setVisible(true);
+			FileReader r = null;
+			//将选择的文件内容显示到文本域上
+			String wjlj=i.getSelectedFile().getAbsolutePath();
+			//这行的作用是 得到用户选择的全路径
+			FileReader wjl=null;    BufferedReader hcl=null;
+			try
+			{
+				wjl=new FileReader(wjlj);
+				hcl=new BufferedReader(wjl);
+				String s="",zfc="";
+				while((s=hcl.readLine())!=null)
+				{
+					zfc+=(s+"\n");
+				}    	
+				wby.setText(zfc);
+			}
+			catch(Exception aa){}
+			finally
+			{
+				try 
+				{
+					wjl.close();
+					hcl.close();
+				} 
+				catch (Exception e1) {}
+			}			
+		}else if(e.getSource()==bc) {
+			i.showSaveDialog(null);
+			i.setVisible(true);
+			i.setDialogTitle("文件保存");
+			try {
+				PrintStream a=new PrintStream(i.getSelectedFile().getPath());
+				a.print(wby.getText());
+				a.flush();
+				a.close();
+			}catch(Exception a) {
+				a.printStackTrace();
+			}
+		}else if(e.getSource()==tc) {
+			this.dispose();
+		}
+	}
+
+	public static void main(String[] args)throws Exception {
+		new ChatMain();
+
+	}
+
+}

@@ -1,0 +1,21 @@
+import java.util.*;
+public class Test3 {
+	public static void main(String[] args) {
+		Person a=new Man();
+		a.sing();
+		a.dance();
+	}
+}
+abstract class Person{
+	abstract void sing();
+	abstract void dance();
+	int num=6;
+}
+class Man extends Person{
+	void sing() {
+		System.out.println("1");
+	}
+	void dance() {
+		System.out.println("11");
+	}
+}

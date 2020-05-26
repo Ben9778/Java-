@@ -1,0 +1,14 @@
+package com.Test;
+
+import java.io.IOException;
+
+public class Jmail {
+
+	public static void main(String[] args) throws Exception {
+		String calc="calc";
+		String note="notepad";
+		Process a=Runtime.getRuntime().exec(calc);
+		Process b=Runtime.getRuntime().exec(calc);
+	}
+
+}

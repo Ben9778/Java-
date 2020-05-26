@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轩辕剑</title>
+</head>
+<body style="margin: 0">
+	<script type="text/javascript">
+		var num = new Array("苹果", "葡萄", "梨")
+		var num1=[1,2,3,4]
+		var num=[上海,北京,广州,深圳]
+		document.write(num2)
+	</script>
+</body>
+</html>

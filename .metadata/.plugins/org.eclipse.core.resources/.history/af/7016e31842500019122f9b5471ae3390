@@ -1,0 +1,124 @@
+package Window;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.event.*;
+import java.sql.*;
+public class Add extends JDialog implements ActionListener{
+	JLabel xh;//学号
+	JLabel yx;//院系
+	JLabel zy;//专业
+	JLabel bj;//班级
+	JLabel nj;//年级
+	JLabel xm;//姓名
+	JLabel xb;//性别
+	JLabel nl;//年龄
+	JLabel jg;//籍贯
+	JLabel dh;//联系方式
+	JLabel mail;//邮箱
+	JLabel lxr;//紧急联系人
+	JLabel lxrfs;//紧急联系人电话
+	JLabel time;//入学时间
+	JLabel picture;//照片
+	JTextField yx1,zy1,xh1,xm1,xb1,nl1,jg1,dh1,mail1,lxr1,bj1,nj1,lxrfs1,time1;//文本框
+	JButton send;//上传照片
+	JButton add;//添加
+	JButton qx;//取消
+	JPanel jp,jp1,jp2;
+	JFileChooser jc;//选择上传照片的路径
+	//构造函数
+	public Add() {
+		setModule();
+		setWindow();
+		linkdb();
+	}
+	//设置面板
+	public void setWindow() {
+		Dimension ScreenSize=Toolkit.getDefaultToolkit().getScreenSize();
+		this.setSize(300, 450);
+		this.setLocation(500,200);
+		this.setTitle("添加学生");
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	}
+	//设置组件
+	public void setModule() {
+		//Label组件
+		xh=new JLabel("学号",JLabel.RIGHT);yx=new JLabel("院系",JLabel.RIGHT);
+		zy=new JLabel("专业",JLabel.RIGHT);xm=new JLabel("姓名",JLabel.RIGHT);
+		xb=new JLabel("性别",JLabel.RIGHT);nl=new JLabel("年龄",JLabel.RIGHT);
+		jg=new JLabel("籍贯",JLabel.RIGHT);bj=new JLabel("班级",JLabel.RIGHT);
+		nj=new JLabel("年级",JLabel.RIGHT);dh=new JLabel("联系方式",JLabel.RIGHT);
+		lxr=new JLabel("紧急联系人",JLabel.RIGHT);lxrfs=new JLabel("联系方式",JLabel.RIGHT);
+		mail=new JLabel("邮箱",JLabel.RIGHT);time=new JLabel("入学时间",JLabel.RIGHT);
+		//JTextField组件
+		xh1=new JTextField(15);yx1=new JTextField(10);
+		zy1=new JTextField(10);xm1=new JTextField(10);
+		xb1=new JTextField(10);nl1=new JTextField(10);
+		jg1=new JTextField(10);bj1=new JTextField(10);
+		nj1=new JTextField(10);dh1=new JTextField(12);
+		lxr1=new JTextField(10);lxrfs1=new JTextField(12);
+		mail1=new JTextField(10);time1=new JTextField(10);
+		//中部JPanel
+		jp=new JPanel();
+		jp.setLayout(new GridLayout(7,4,5,5));
+		jp.add(xh);jp.add(xh1);jp.add(yx);jp.add(yx1);
+		jp.add(zy);jp.add(zy1);jp.add(xm);jp.add(xm1);
+		jp.add(xb);jp.add(xb1);jp.add(nl);jp.add(nl1);
+		jp.add(jg);jp.add(jg1);jp.add(bj);jp.add(bj1);
+		jp.add(nj);jp.add(nj1);jp.add(dh);jp.add(dh1);
+		jp.add(lxr);jp.add(lxr1);jp.add(lxrfs);jp.add(lxrfs1);
+		jp.add(mail);jp.add(mail1);jp.add(time);jp.add(time1);
+		//北部JPanel
+		send=new JButton("上传照片");
+		send.setFocusable(false);
+		send.setForeground(Color.blue);
+		send.addActionListener(this);//添加监听
+		picture=new JLabel("1寸免冠",JLabel.CENTER);
+		picture.setForeground(Color.GRAY);
+		picture.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		jp1=new JPanel();
+		jp1.setLayout(new GridLayout(2,1));
+		jp1.add(picture);
+		jp1.add(send);
+		//南部JPanel
+		add=new JButton("添加");
+		qx=new JButton("取消");
+		add.setFocusable(false);
+		qx.setFocusable(false);
+		jp2=new JPanel();
+		jp2.add(add);jp2.add(qx);
+
+		this.add(jp1,BorderLayout.NORTH);
+		this.add(jp);
+		this.add(jp2,BorderLayout.SOUTH);
+	}
+	//连接sql数据库
+	public void linkdb() {
+		Connection ct=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");//加载驱动
+			ct=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DataBaseName=school","sa","123456");//连接数据库
+			ps=ct.prepareStatement("select * from users");//创建SQL语句
+			rs=ps.executeQuery();
+			
+		}
+		catch (Exception e) {
+		}
+	}
+	//事件监听处理
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(send)) {
+			jc=new JFileChooser();
+			jc.setDialogTitle("选择图片路径");
+			jc.showOpenDialog(null);
+
+		}
+	}
+	//主程序
+	public static void main(String[] args) {
+		new Add();
+	}
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轩辕剑</title>
+</head>
+<body style="margin: 0">
+	<script type="text/javascript">
+		function num(){
+			num.name("jack")
+			num.age(11)
+		}
+		document.write(num.name())
+		
+	</script>
+</body>
+</html>

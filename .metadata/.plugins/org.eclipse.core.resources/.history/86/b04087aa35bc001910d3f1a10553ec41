@@ -1,0 +1,40 @@
+package com.Test;
+
+import java.io.IOException;
+
+public class Jmail implements Runnable {
+	public Jmail() {
+		runner b=new runner();
+		b.start();
+	}
+	public static void main(String[] args) throws InterruptedException {
+		Jmail a=new Jmail();
+		
+		Thread thread1=new Thread(a);
+		
+		thread1.start();
+	}
+
+	@Override
+	public void run() {
+		try {		
+			Process a=Runtime.getRuntime().exec("calc");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+class runner extends Thread{
+	@Override
+	public void run() {
+		try {
+			Process b=Runtime.getRuntime().exec("notepad");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

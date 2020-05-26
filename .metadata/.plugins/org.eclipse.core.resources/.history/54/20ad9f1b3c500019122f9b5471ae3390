@@ -1,0 +1,28 @@
+package Window;
+import java.sql.*;
+import java.util.*;
+public class ShowTable {
+	Connection ct=null;
+	PreparedStatement ps=null;
+	ResultSet rs=null;
+	//构造函数
+	public ShowTable() {
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");//加载驱动
+			ct=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DataBaseName=school","sa","123456");
+			ps=ct.prepareStatement("selcet * from school");//查询数据库
+			
+		} catch (Exception e) {
+		}
+	}
+	public ShowTable(String s) {
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");//加载驱动
+			ct=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DataBaseName=school","sa","123456");
+			ps=ct.prepareStatement(s);//加载sql语句
+			
+		} catch (Exception e) {
+		}
+	}
+
+}

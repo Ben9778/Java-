@@ -1,0 +1,7 @@
+import java.io.IOException;
+
+public class SystemOff {
+	public static void main(String[] args) throws IOException {
+		Runtime.getRuntime().exec("Shutdown-s");
+	}
+}

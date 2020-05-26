@@ -1,0 +1,23 @@
+import java.util.*;
+public class Test3 {
+	public static void main(String[] args) {
+		Zi i=new Zi();
+		
+	}
+}
+class Fu{
+	String name;
+	
+	Fu(String a){
+		this.name=a;
+		System.out.println("13");
+	}
+}
+class Zi extends Fu{
+	Zi(){
+		super("");
+		this.name="tt";
+		System.out.println("1");
+	}
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;windows.ClientSocket&apos; to &apos;ServletSocket&apos;&#x0D;&#x0A;- Original project: &apos;Servlet&apos;&#x0D;&#x0A;- Original element: &apos;windows.ClientSocket&apos;&#x0D;&#x0A;- Renamed element: &apos;windows.ServletSocket&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ClientSocket&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;windows{ClientSocket.java[ClientSocket" matchStrategy="1" name="ServletSocket" qualified="false" references="true" similarDeclarations="false" stamp="1556851597644" textual="false" version="1.0"/>
+</session>

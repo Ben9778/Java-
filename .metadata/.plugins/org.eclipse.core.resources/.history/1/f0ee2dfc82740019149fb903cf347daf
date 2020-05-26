@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轩辕剑</title>
+<style type="text/css">
+#div {
+	background: red;margin=0;width:100px;height:150px
+	
+}
+</style>
+</head>
+<body>
+	<div id="div">你好</div>
+
+</body>
+</html>

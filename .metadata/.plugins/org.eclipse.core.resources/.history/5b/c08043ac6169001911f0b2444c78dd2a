@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轩辕剑</title>
+</head>
+<body style="margin: 0">
+	<script type="text/javascript">
+		var num=new Array()
+		num.length=5
+		document.write(num.lentgh)
+	</script>
+</body>
+</html>

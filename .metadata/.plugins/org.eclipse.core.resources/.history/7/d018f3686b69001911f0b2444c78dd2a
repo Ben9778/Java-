@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轩辕剑</title>
+</head>
+<body style="margin: 0">
+	<script type="text/javascript">
+		var date=new Date("01/02/2012")
+		document.write(date)
+	</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+package MainWindow;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.applet.*;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+/*
+ * Author:Ben
+ * vesion:1.0
+ */
+public class Login extends JFrame implements ActionListener,MouseListener{
+	JLabel bg;//背景图片
+	JLabel zh;//用户名
+	JLabel mm;//密码
+	JTextField user;//账号框
+	JPasswordField password;//密码框
+	JButton login;//登陆按钮
+	JButton cancel;//取消按钮
+	JPanel jp;//右边组件
+	BufferedImage image=null;
+	
+	public Login() {
+		this.setContent();
+		this.setPanel();
+		this.setMain();
+	}
+	/*
+	 * 设置界面内容属性
+	 */
+	public void setContent() {
+		Icon background=new ImageIcon("Image/timg.jpg");
+		bg=new JLabel(background);
+		bg.setBounds(0, 0, 412, 227);
+		this.add(bg);
+
+		zh=new JLabel("用户名");zh.setForeground(Color.white);zh.setBounds(430, 50, 50, 50);
+		mm=new JLabel("密    码");mm.setForeground(Color.white);mm.setBounds(430, 90, 50, 50);
+		user=new JTextField(10);user.setBounds(480, 65, 100, 25);
+		password=new JPasswordField(10);password.setBounds(480, 100, 100, 25);
+		login=new JButton("登陆");
+		login.setBounds(440,140,65,30);login.setForeground(Color.WHITE);
+		login.setBackground(Color.PINK);login.setFocusable(false);
+		login.addActionListener(this);login.addMouseListener(this);
+		cancel=new JButton("取消");
+		cancel.setBounds(510,140,65,30);cancel.setForeground(Color.WHITE);
+		cancel.setBackground(Color.PINK);cancel.setFocusable(false);
+		cancel.addActionListener(this);cancel.addMouseListener(this);
+		
+		this.add(zh);this.add(mm);this.add(user);this.add(password);
+		this.add(login);this.add(cancel);
+	}
+	public void setPanel() {
+		jp=new JPanel();
+		jp.setBackground(Color.blue);
+		jp.setBounds(412, 0, 200, 227);
+		this.add(jp);
+	}
+	/*
+	 * 设置JFrame属性
+	 * 图标还未添加
+	 * */
+	public void setMain() {
+		try {
+			image=ImageIO.read(new File("Image/22.jpg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		this.setTitle("剑的传说直到永恒");
+		this.setIconImage(image);
+		this.setLayout(null);
+		this.setSize(612, 227);
+		this.setLocation(420, 170);
+		this.setResizable(false);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	//监听事件处理
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(login)) {
+			
+		}else if(e.getSource().equals(cancel)) {
+			this.dispose();
+		}
+
+	}
+	//鼠标监听事件处理
+	public void mouseClicked(MouseEvent arg0) {
+			
+	}
+	public void mouseEntered(MouseEvent e1) {//鼠标焦点事件
+		if(e1.getSource().equals(login)) {
+			login.setBackground(Color.GREEN);
+			login.setForeground(Color.RED);
+		}else if(e1.getSource().equals(cancel)) {
+			cancel.setBackground(Color.GREEN);
+			cancel.setForeground(Color.RED);
+		}
+	}
+	public void mouseExited(MouseEvent e2) {
+		if(e2.getSource().equals(login)) {
+			login.setBackground(Color.PINK);
+			login.setForeground(Color.WHITE);
+		}else if(e2.getSource().equals(cancel)) {
+			cancel.setBackground(Color.PINK);
+			cancel.setForeground(Color.WHITE);
+		}
+	}
+	public void mousePressed(MouseEvent arg0) {
+			
+	}
+	public void mouseReleased(MouseEvent arg0) {
+			
+	}
+	
+	/*
+	 * 主程序启动
+	 */
+	public static void main(String[] args) {
+		Login a=new Login();
+
+	}
+}

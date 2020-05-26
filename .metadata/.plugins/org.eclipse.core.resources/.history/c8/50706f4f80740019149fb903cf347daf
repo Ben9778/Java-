@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轩辕剑</title>
+<style type="text/css">
+#div{background-color:red}
+</style>
+</head>
+<body>
+	<div id="div"></div>
+		
+</body>
+</html>

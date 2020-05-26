@@ -1,0 +1,72 @@
+package ChatSystem;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.io.*;
+
+public class ChatMain extends JFrame {
+	
+		
+		public ChatMain() {
+			
+		}
+		//主容器设置属性
+		public void setMain() {
+			this.setTitle("俄罗斯方块");
+			this.setSize(300, 500);
+			this.setLocation(200, 100);
+			this.setVisible(true);
+			this.setResizable(false);
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
+	public static void main(String[] args)throws Exception {
+		
+
+	}
+
+}
+
+//创建一个定义方块初始位置的类(方块在背景的上中间位置出现)
+class setFkPosition{
+	private int x=150;//横移
+	private int y=0;//向下移动
+	
+//	public setFkPosition(int x,int y) {
+//		this.x=x;
+//		this.y=y;
+//	}
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
+}
+//设置背景为黑色的类
+class DrawBackground extends JPanel{
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.draw3DRect(0, 0, 300, 500, false);
+	}
+}
+//创建一个设置方块属性方块的类
+class FkPaint extends JPanel{
+	setFkPosition wz=new setFkPosition();
+	Graphics g;
+	public void paint(Graphics g) {
+		this.g=g;
+		super.paint(g);
+	}
+	public void LFk() {
+		g.setColor(Color.BLUE);
+		g.drawRect(wz.getX(), wz.getY(), 20, 60);
+	}
+}

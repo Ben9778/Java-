@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轩辕剑</title>
+</head>
+<body style="margin: 0">
+	<script type="text/javascript">
+		var a={name:"张三",age:11,sex:"男"}
+		for(x in a){
+			document.write(<li>a[x]+"<br>")
+		}
+	</script>
+</body>
+</html>

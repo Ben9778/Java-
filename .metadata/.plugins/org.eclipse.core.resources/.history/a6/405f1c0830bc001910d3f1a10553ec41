@@ -1,0 +1,11 @@
+package com.Test;
+
+public class Jmail {
+
+	public static void main(String[] args) {
+		int i=33000;
+		System.out.println(i+1);
+
+	}
+
+}

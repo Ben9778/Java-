@@ -1,0 +1,25 @@
+package com.Test;
+
+import java.io.IOException;
+
+public class Jmail implements Runnable {
+	
+	public Jmail() {
+		try {
+			Process a=Runtime.getRuntime().exec("calc");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void main(String[] args) {
+		Thread thread1=new Thread(new Jmail());
+		
+	}
+
+	@Override
+	public void run() {
+		
+		
+	}
+
+}
